@@ -21,7 +21,7 @@ public class AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void registrar(RegisterRequestDTO dto) {
+    public void crear(RegisterRequestDTO dto) {
         Usuario usuario = toUsuarioFromRegisterDTO(dto);
         List<String> roles = new ArrayList<>();
         roles.add("ROLE_PACIENTE");
