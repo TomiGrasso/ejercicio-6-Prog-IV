@@ -14,30 +14,32 @@ public class UsuarioStore {
 
     private Long contadorId = 1L;
 
-    //public UsuarioStore {
-    //    List<String> rolesAdmin = new ArrayList<>();
-    //    rolesAdmin.add("ROLE_ADMIN");
+    /*
+    public UsuarioStore {
+        List<String> rolesAdmin = new ArrayList<>();
+        rolesAdmin.add("ROLE_ADMIN");
         //Inicializo un usuario de prueba con "ROLE_ADMIN"
-    //    Usuario admin = new Usuario(
-    //            contadorId++,
-    //            "admin",
-    //            encoder.encode("admin123"),
-    //            "admin@turnos.com",
-    //            rolesAdmin
-    //    );
-    //    usuarios.add(admin);
+        Usuario admin = new Usuario(
+                contadorId++,
+                "admin",
+                encoder.encode("admin123"),
+                "admin@turnos.com",
+                rolesAdmin
+        );
+        usuarios.add(admin);
 
-    //    List<String> rolesMedico = new ArrayList<>();
-    //    rolesMedico.add("ROLE_MEDICO");
-    //    Inicializo un usuario de prueba con "ROLE_MEDICO"
-    //    Usuario medico = new Usuario(
-    //            contadorId++,
-    //            "dr_garcia",
-    //            encoder.encode("medico123"),
-    //            "medico@turnos.com",
-    //            rolesMedico);
-    //    usuarios.add(medico);
-    //}
+        List<String> rolesMedico = new ArrayList<>();
+        rolesMedico.add("ROLE_MEDICO");
+        Inicializo un usuario de prueba con "ROLE_MEDICO"
+        Usuario medico = new Usuario(
+                contadorId++,
+                "dr_garcia",
+                encoder.encode("medico123"),
+                "medico@turnos.com",
+                rolesMedico);
+        usuarios.add(medico);
+    }
+     */
 
     public void guardarUsuario(Usuario usuario){
         usuario.setId(contadorId++);
