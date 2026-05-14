@@ -1,5 +1,6 @@
 package com.practicos.ejercicio6.config;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -38,6 +39,30 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 );
                 http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+                http.exceptionHandling(exception -> exception
+                        // ERROR 401
+                        .authenticationEntryPoint((request, response, authException) -> {
+                            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                            response.setContentType("application/json");
+                            response.getWriter().write("""
+                                {
+                                    "error": "No autenticado"
+                                }
+                            """);
+                        })
+
+                        // ERROR 403
+                        .accessDeniedHandler((request, response, accessDeniedException) -> {
+                            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                            response.setContentType("application/json");
+                            response.getWriter().write("""
+                                {
+                                    "error": "Sin permisos"
+                                }
+                            """);
+                        })
+        );
 
         return http.build();
     }
